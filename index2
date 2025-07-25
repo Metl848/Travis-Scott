@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 280 100% 95%;
+    --card: 240 8% 8%;
+    --card-foreground: 280 100% 95%;
+    --popover: 240 8% 8%;
+    --popover-foreground: 280 100% 95%;
+    --primary: 280 100% 70%;
+    --primary-foreground: 240 10% 4%;
+    --secondary: 320 100% 65%;
+    --secondary-foreground: 240 10% 4%;
+    --muted: 240 8% 12%;
+    --muted-foreground: 280 20% 60%;
+    --accent: 25 100% 65%;
+    --accent-foreground: 240 10% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 280 100% 95%;
+    --border: 240 8% 15%;
+    --input: 240 8% 12%;
+    --ring: 280 100% 70%;
+    
+    --game-neon-purple: 280 100% 70%;
+    --game-neon-pink: 320 100% 65%;
+    --game-neon-orange: 25 100% 65%;
+    --game-neon-blue: 220 100% 65%;
+    --game-flame: 15 100% 60%;
+    --game-space: 240 10% 4%;
+    --game-cosmic: 260 80% 20%;
+    
+    --gradient-cosmic: linear-gradient(135deg, hsl(var(--game-space)), hsl(var(--game-cosmic)));
+    --gradient-neon: linear-gradient(90deg, hsl(var(--game-neon-purple)), hsl(var(--game-neon-pink)));
+    --gradient-flame: linear-gradient(45deg, hsl(var(--game-flame)), hsl(var(--game-neon-orange)));
+    
+    --radius: 0.75rem;
+  }
+}
+
+@layer components {
+  .runner-animation { animation: runner-bounce 0.6s ease-in-out infinite alternate; }
+  .floating-animation { animation: float 3s ease-in-out infinite; }
+  .pulse-neon { animation: pulse-neon 2s ease-in-out infinite; }
+  .slide-obstacle { animation: slide-left 3s linear infinite; }
+  .collect-animation { animation: collect-spin 0.5s ease-out; }
+  
+  .bg-cosmic { background: var(--gradient-cosmic); }
+  .bg-neon { background: var(--gradient-neon); }
+  .bg-flame { background: var(--gradient-flame); }
+  
+  .glow-purple { box-shadow: 0 0 20px hsl(var(--game-neon-purple) / 0.5); }
+  .glow-pink { box-shadow: 0 0 20px hsl(var(--game-neon-pink) / 0.5); }
+  .glow-orange { box-shadow: 0 0 20px hsl(var(--game-neon-orange) / 0.5); }
+}
+
+@layer utilities {
+  @keyframes runner-bounce {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-10px); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+  
+  @keyframes pulse-neon {
+    0%, 100% { opacity: 1; filter: brightness(1); }
+    50% { opacity: 0.8; filter: brightness(1.2); }
+  }
+  
+  @keyframes slide-left {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-200px); }
+  }
+  
+  @keyframes collect-spin {
+    0% { transform: scale(1) rotate(0deg); opacity: 1; }
+    100% { transform: scale(1.5) rotate(360deg); opacity: 0; }
+  }
+}
