@@ -1,0 +1,7 @@
+import GameRunner from '@/components/GameRunner';
+
+const Index = () => {
+  return <GameRunner />;
+};
+
+export default Index;
